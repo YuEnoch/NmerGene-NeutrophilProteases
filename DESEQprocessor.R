@@ -35,6 +35,7 @@ setwd(folder)
 #replicates = c("C1",    "C2",   "H1",   "H2",    "E1",   "E2", "N1",   "N2")
 #treatments = c("AEBSF", "EDTA", "AEBSF+EDTA", "N")
 
+'''
 install.packages("BiocManager")
 install.packages("edgeR")
 install.packages("Logolas")
@@ -63,6 +64,7 @@ install.packages("vctrs")
 install.packages("utf8")
 BiocManager::install("DECIPHER")
 BiocManager::install("DESeq2")
+'''
 
 #load R packages for DEG data analysis
 library(DESeq2)
