@@ -109,6 +109,8 @@ for treatment in experiments:
     treatmentList+=','
 treatmentList = treatmentList[:-1]
 print(treatmentList)
+
+print("Making Weblogos...")
 call(["python3", "WeblogoProcessor.py", treatmentList])
 
 print("Pipeline Complete")
