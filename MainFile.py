@@ -3,6 +3,7 @@
 #Based off code from Dr. Kart Tomberg -> https://github.com/tombergk/NNK_VWF73/
 
 #Purpose: Runs All the Analyses involved, takes in 5AA Mutagenesis Data to derive a merged table (ready for Deseq2), AA_frequencies, Nucleic Acid frequencies
+#         Then, it runs DESeq2 to identify significantly enriched peptides and conducts Principal Component Analyses to cluster them, which are presented as Weblogos
 #Assumptions:
 # 1. Mutagenesis for 5 Amino Acids
 # 2. Mutagenesis occurs between positions 55 and 70 (in clean_fastq.py and get_peptides.py)
@@ -23,12 +24,12 @@ treatmentNames = ["C", "E", "H", "N"]
 experiments = ["cathepsinG", "elastase", "hpr3"]
 experimentName = "Neutrophils"
 gzipChoice = str(0) #Are the FastQ files in Gzip? 0 = No, 1 = Yes
+Rversion = '4.1.2'  #What version of R is installed? Used to run R File
 
 def fileNameFormat(num, parallel):     #FastQ File Name Format
     return allTreatments[num] + "_S" + str(num+1) + "_L00"+str(parallel)+"_R1_001.fastq"
 
 #NOTE: for the treatments and experiments, they need to be edited in the R files as well
-#      the directories need to be changed in R files
 #      also, the R files require packages to be installed (details in R files)
 
 
@@ -87,7 +88,8 @@ call(["python3", "Merge_for_Deseq2.py", experimentName, str(treatments), treatme
 
 #DESEQprocessor.r: Uses Merged Counts across all treatments for DESeq2 analysis to identify significantly enriched peptides
 #                  A significantly enriched peptide is defined as p < 0.05 (Bonferroni) and log2 Fold Change > 0
-subprocess.call ("DESEQprocessor.r", shell=True)
+print("Conducting DESeq2 analysis:")
+subprocess.check_call(['C:/Program Files/R/R-'+Rversion+'/bin/Rscript.exe', '--vanilla', os.getcwd()+'/DESEQprocessor.r', os.getcwd()], shell=True)
 
 
 #DESEQtoFASTA.py: converts the DESEQ results into a Fasta File (sequences alone) for PCA Analysis
@@ -97,7 +99,8 @@ for i in range(len(experiments)):
     call(["python3", "DESEQtoFASTA.py", experiments[i], fileName1])
 
 #PCAprocessor.r: Clusters significantly enriched peptides from Deseq using Principal Component Analysis based on Amino Acid Properties
-subprocess.call ("PCAprocessor.r", shell=True)
+print("Conducting PCA analysis:")
+subprocess.check_call(['C:/Program Files/R/R-'+Rversion+'/bin/Rscript.exe', '--vanilla', os.getcwd()+'/PCAprocessor.r', os.getcwd()], shell=True)
 
 #WeblogoProcessor.py: For each cluster (from PCA), creates a Weblogo (prereq: downloaded Weblogo as of https://github.com/WebLogo/weblogo)
 treatmentList = ""
@@ -107,3 +110,5 @@ for treatment in experiments:
 treatmentList = treatmentList[:-1]
 print(treatmentList)
 call(["python3", "WeblogoProcessor.py", treatmentList])
+
+print("Pipeline Complete")
