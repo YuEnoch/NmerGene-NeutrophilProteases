@@ -21,16 +21,26 @@ def get_read_set(file1):
     '''Expects to open file as input. Returns 4 lines of data, four from
 each file. Return characters are stripped from each line.
 '''
-    while True:
-        line1 = str(file1.readline().strip())[2:-1] 
-        line2 = str(file1.readline().strip())[2:-1]
-        line3 = str(file1.readline().strip())[2:-1]
-        line4 = str(file1.readline().strip())[2:-1]
-
-        if (line1 and line2 and line3 and line4):
-            yield line1, line2, line3, line4
-        else:
-            break
+    if gzipChoice == 0:
+        while True:
+            line1 = str(file1.readline().strip())
+            line2 = str(file1.readline().strip())
+            line3 = str(file1.readline().strip())
+            line4 = str(file1.readline().strip())
+            if (line1 and line2 and line3 and line4):
+                yield line1, line2, line3, line4
+            else:
+                break
+    elif gzipChoice == 1:
+        while True:
+            line1 = str(file1.readline().strip())[2:-1] 
+            line2 = str(file1.readline().strip())[2:-1]
+            line3 = str(file1.readline().strip())[2:-1]
+            line4 = str(file1.readline().strip())[2:-1]
+            if (line1 and line2 and line3 and line4):
+                yield line1, line2, line3, line4
+            else:
+                break
 
 #Opens the necessary files for Input and Output
 number = sys.argv[1]
