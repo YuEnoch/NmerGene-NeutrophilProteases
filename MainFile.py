@@ -14,30 +14,26 @@
 # 1. All FastQ files are stored in the same folder
 # 2. Single-End Reads conducted in Parallel (each treatment has 2 FastQ Files, separate and not complementary)
 
-#Edit the Following:
+#NOTE: need to edit the following (based off your experiment)
+#      currently, all parameters are set based off the Test Dataset
 treatments = 8
 n_plicates = 2 #duplicates, triplicates, etc.
 allTreatments = ["C1", "C2", "E1", "E2", "H1", "H2", "N1", "N2"]
 treatmentNames = ["C", "E", "H", "N"]
 experiments = ["cathepsinG", "elastase", "hpr3"]
 experimentName = "Neutrophils"
-gzipChoice = str(1) #Are the FastQ files in Gzip? 0 = No, 1 = Yes
+gzipChoice = str(0) #Are the FastQ files in Gzip? 0 = No, 1 = Yes
 
 def fileNameFormat(num, parallel):     #FastQ File Name Format
     return allTreatments[num] + "_S" + str(num+1) + "_L00"+str(parallel)+"_R1_001.fastq.gz"
 
-#NOTE: for the treatments and experiments, they need to be edited in the r file as well
-
-#Edit ^
-
+#NOTE: for the treatments and experiments, they need to be edited in the R files as well
 
 
 import sys
 import os
 import subprocess
 from subprocess import call
-
-
 
 def find_files(fileName):              #Find File Location (if FastQ not in same folder), goes outside 2 Folders to look for file
     dir_path = os.path.normpath(os.path.normpath(os.getcwd() + os.sep + os.pardir) + os.sep + os.pardir)   #goes outside two folders
@@ -54,15 +50,15 @@ for i in range(len(allTreatments)):
     fileName2 = find_files(fileNameFormat(i, 2))
     print(name, fileName1, fileName2)
     
-    #call(["python3", "clean_fastq.py", name, fileName1, fileName2, gzipChoice])
+    call(["python3", "clean_fastq.py", name, fileName1, fileName2, gzipChoice])
     print(name, "clean_fastq.py done")
-    #call(["python3", "getPeptides.py", name])
+    call(["python3", "getPeptides.py", name])
     print(name, "getPeptides.py done")
 
 
-    #call(["python3", "getAminoAcidCount.py", name])
-    #call(["python3", "getNucleicAcidCount.py", name])
-    #call(["python3", "ObservedExpectedPlot.py", name])
+    call(["python3", "getAminoAcidCount.py", name])
+    call(["python3", "getNucleicAcidCount.py", name])
+    call(["python3", "ObservedExpectedPlot.py", name])
     
 
 
