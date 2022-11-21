@@ -3,7 +3,7 @@
 
 This folder contains files involved in the high throughput sequencing analysis from the 5 Amino Acid Mutagenesis sequencing data. It identifies significantly enriched peptides, analyzes the amino/nucleic acid frequencies, and clusters the enriched peptides based on their properties (Principal Component Analysis).
 
-The pipeline is all outlined in order within MainFile.py. To start, copy all Python and R scripts into the same folder. 
+The pipeline is all outlined in order within MainFile.py. To start, copy all Python and R scripts, as well as the folders, into the same folder. MainFile.py would contain all the instruction of setting up the pipeline.
 
 It contains:
 
