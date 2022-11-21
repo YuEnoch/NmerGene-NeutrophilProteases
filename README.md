@@ -1,5 +1,5 @@
 # NNK-NeutrophilProteases
-**High Throughput Sequencing Analysis Pipeline for analyzing 5AA Mutagenesis Data**
+**High Throughput Sequencing Analysis Pipeline for analyzing 5 Amino Acid Mutagenesis Data**
 
 This folder contains files involved in the high throughput sequencing analysis from the 5 Amino Acid Mutagenesis sequencing data. It identifies significantly enriched peptides, analyzes the amino/nucleic acid frequencies, and clusters the enriched peptides based on their properties (Principal Component Analysis).
 
