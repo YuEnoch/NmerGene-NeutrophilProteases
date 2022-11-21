@@ -28,6 +28,8 @@ def fileNameFormat(num, parallel):     #FastQ File Name Format
     return allTreatments[num] + "_S" + str(num+1) + "_L00"+str(parallel)+"_R1_001.fastq"
 
 #NOTE: for the treatments and experiments, they need to be edited in the R files as well
+#      the directories need to be changed in R files
+#      also, the R files require packages to be installed (details in R files)
 
 
 import sys
