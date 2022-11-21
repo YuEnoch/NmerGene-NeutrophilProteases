@@ -25,7 +25,7 @@ experimentName = "Neutrophils"
 gzipChoice = str(0) #Are the FastQ files in Gzip? 0 = No, 1 = Yes
 
 def fileNameFormat(num, parallel):     #FastQ File Name Format
-    return allTreatments[num] + "_S" + str(num+1) + "_L00"+str(parallel)+"_R1_001.fastq.gz"
+    return allTreatments[num] + "_S" + str(num+1) + "_L00"+str(parallel)+"_R1_001.fastq"
 
 #NOTE: for the treatments and experiments, they need to be edited in the R files as well
 
