@@ -15,9 +15,9 @@
 # 1. Mutagenesis for 5 Amino Acids
 # 2. NNK Mutagenesis
 
-#Edit the Following: working directory, treatment columns, replicates, Merged DESeq Csv file location
+#EDIT the Following: working directory, treatment columns, replicates, Merged DESeq Csv file location
 #change folder to the location of your folder
-folder = "C:/Users/enoch/Downloads/Github ALL"
+folder = "C:/Users/enoch/Downloads/Github ALL"   #<-----------
 
 coldata = c("cathepsinG","cathepsinG","hpr3","hpr3","elastase","elastase","N","N")
 replicates = c("C1","C2","H1","H2","E1","E2","N1","N2")
@@ -116,7 +116,7 @@ saveRDS(dds, file = "dds_object.rds")
 #The above part could be skipped if the code was ran before and the RDS file was already generated
 dds
 #This was generated with the above code, but loaded now for speed
-dds <- readRDS("C:/Users/enoch/Downloads/Github ALL/dds_object.rds")
+dds <- readRDS(paste0(folder,"/dds_object.rds"))
 dir.create("Significant_Peptides")
 
 
