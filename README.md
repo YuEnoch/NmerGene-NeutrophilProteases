@@ -7,14 +7,14 @@ The pipeline is all outlined in order within MainFile.py. To start, copy all Pyt
 
 It contains:
 
-Information about raw fastq file and its details
-All in-house developed scripts for read mapping, filtering, and translation
-DESEQ2 analysis for significantly enriched peptides
-Principal Component Analysis to cluster significatly enriched peptides
-Weblogo Analysis for clusters
+- Information about raw fastq file and its details
+- All in-house developed scripts for read mapping, filtering, and translation
+- DESEQ2 analysis for significantly enriched peptides
+- Principal Component Analysis to cluster significatly enriched peptides
+- Weblogo Analysis for clusters
 
-Frequency Analysis for Amino Acids, Nucleic Acids, and Oberved/Expected Amino Acids
-Code to generate plots for the above analyses
+- Frequency Analysis for Amino Acids, Nucleic Acids, and Oberved/Expected Amino Acids
+- Code to generate plots for the above analyses
 
 The code adapts work from:
 - Dr. Kart Tomberg
