@@ -19,4 +19,5 @@ Code to generate plots for the above analyses
 The code adapts work from:
 - Dr. Kart Tomberg
 - Dr. Matt Holding
-*mod575.py is written by Dr. Kart Tomberg
+
+mod575.py is written by Dr. Kart Tomberg
