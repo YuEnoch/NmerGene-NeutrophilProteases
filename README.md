@@ -5,7 +5,7 @@ This folder contains files involved in the high throughput sequencing analysis f
 
 **To Start (based on default parameters, testing data):**
 1. Download Repositry and Unzip
-2. Run MainFile.py
+2. Run MainFile.py (*Ensure correct R Version)
 3. A Python Popup should appear and the Pipeline would automatically run using the Test Files
 4. The Plots and Reults would all appear within the file and its folders
 
