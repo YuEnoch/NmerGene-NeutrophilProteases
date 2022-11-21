@@ -114,7 +114,7 @@ dds
 dds <- readRDS(paste0(folder,"/dds_object.rds"))
 dir.create("Significant_Peptides")
 
-
+print("Creating Plots...")
 for (i in 1:length(treatments)){
   treatments[i]
   res_bonf <- results(dds, contrast=c("condition",treatments[i],"N"), alpha=0.05,pAdjustMethod = "bonferroni")
