@@ -14,8 +14,8 @@
 # 2. NNK Mutagenesis
 
 #Edit the Following: working directory, treatments, file locations
-folder  <- 'C:/Users/enoch/Downloads/Github ALL' #<-----------
-
+args = commandArgs(trailingOnly=TRUE)
+folder = args[1]
 source(paste0(folder, '/PCA Analysis/SeqSpace main function.R'))
 source(paste0(folder, '/PCA Analysis/Plots.R'))
 res.prop1 <- readRDS(paste0(folder,'/PCA Analysis/config.rds')) #contains the properties of each Amino Acid
