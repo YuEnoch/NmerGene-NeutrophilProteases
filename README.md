@@ -15,7 +15,7 @@ It contains:
 
 - Frequency Analysis for Amino Acids, Nucleic Acids, and Oberved/Expected Amino Acids
 - Code to generate plots for the above analyses
-- Test Files (a subset of the complete sequencing results), for Neutrophil Proteases Cathepsin G (C), Human Proteinase 3 (H), and Elastase (E), with an unselected control (N). The tests were done in duplicates.
+- Test Files (a subset of the complete FASTQ sequencing results), for Neutrophil Proteases Cathepsin G (C), Human Proteinase 3 (H), and Elastase (E), with an unselected control (N). The tests were done in duplicates.
 
 The code adapts work from:
 - Dr. Kart Tomberg
