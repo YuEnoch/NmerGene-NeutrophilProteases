@@ -15,7 +15,7 @@ This folder contains files involved in the high throughput sequencing analysis f
 - Installation of R Packages (specified in DESEQprocessor.R, PCAprocessor.R)
 - Installation of Weblogo: https://github.com/WebLogo/weblogo, go to CMD and enter pip install weblogo
 
-**To Adjust for different Experiments:**
+**To Adjust for different Sequencing Experiments:**
 1. Change Parameters in MainFile.py (# of treatments, # of n_plicates, experiment/treatment names, gzip, etc.)
 2. Change Parameters in DESEQprocessor.R and PCAprocessor.R (experiment/treatment names)
 3. Change Seeds (Conserved Sequences) and Locations of Mutagenesis in clean_fastq.py, getPeptides.py
