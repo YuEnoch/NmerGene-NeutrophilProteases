@@ -16,11 +16,16 @@
 # 2. NNK Mutagenesis
 
 #Edit the Following: working directory, treatment columns, replicates, Merged DESeq Csv file location
-setwd("C:/Users/enoch/Downloads/Github ALL")
+#change folder to the location of your folder
+folder = "C:/Users/enoch/Downloads/Github ALL"
+
 coldata = c("cathepsinG","cathepsinG","hpr3","hpr3","elastase","elastase","N","N")
 replicates = c("C1","C2","H1","H2","E1","E2","N1","N2")
 treatments <- c("cathepsinG", "hpr3", "elastase")
-data <- read.csv("C:/Users/enoch/Downloads/Github ALL/Neutrophils_merged.csv",header=TRUE,row.names=1)
+experiment = "Neutrophils"
+data <- read.csv(paste0(folder, "/", experiment, "_merged.csv"),header=TRUE,row.names=1)
+
+setwd(folder)
 
 
 #coldata = c("control","control","control","AEBSF","AEBSF","AEBSF","EDTA","EDTA","EDTA","AEBSF+EDTA","AEBSF+EDTA","AEBSF+EDTA", "N","N","N")
