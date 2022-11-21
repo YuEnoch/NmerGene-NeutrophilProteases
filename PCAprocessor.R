@@ -13,12 +13,13 @@
 # 1. Mutagenesis for 5 Amino Acids
 # 2. NNK Mutagenesis
 
-#Edit the Following: working directory, treatments, Function file locations
-source('C:/Users/enoch/Downloads/Github ALL/PCA Analysis/SeqSpace main function.R')
-source('C:/Users/enoch/Downloads/Github ALL/PCA Analysis/Plots.R')
-res.prop1 <- readRDS('C:/Users/enoch/Downloads/Github ALL/PCA Analysis/config.rds') #contains the properties of each Amino Acid
+#Edit the Following: working directory, treatments, file locations
+folder  <- 'C:/Users/enoch/Downloads/Github ALL' #<-----------
+
+source(paste0(folder, '/PCA Analysis/SeqSpace main function.R'))
+source(paste0(folder, '/PCA Analysis/Plots.R'))
+res.prop1 <- readRDS(paste0(folder,'/PCA Analysis/config.rds')) #contains the properties of each Amino Acid
 treatments <- c("cathepsinG", "hpr3", "elastase")
-folder  <- 'C:/Users/enoch/Downloads/Github ALL' #where PCA results would be kept
 
 #########
 # Setup #
