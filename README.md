@@ -33,7 +33,7 @@ This folder contains files involved in the high throughput sequencing analysis f
 - Test Files (a subset of the complete FASTQ sequencing results), for Neutrophil Proteases Cathepsin G (C), Elastase (E), and Human Proteinase 3 (H) with an unselected control (N). The experiments were done in duplicates.
 
 The code adapts work from:
-- Dr. Kart Tomberg
+- Dr. Kart Tomberg https://github.com/tombergk/NNK_VWF73/
 - Dr. Matt Holding
 
 
