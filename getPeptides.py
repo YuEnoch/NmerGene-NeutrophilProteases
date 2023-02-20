@@ -3,8 +3,8 @@
 #Based off code from Dr. Kart Tomberg -> https://github.com/tombergk/NNK_VWF73/
 
 #Purpose: takes in Sense Sequences of Mutagenesis Data (from clean_fastQ.py), converts into Amino Acids and counts all Peptides on a table 
-#Changes across Experiments: alter accordingly
-# 1. Location of Mutagenesis (here, between positions 55 and 70), the [54:69]
+#Changes across Experiments: please alter on parameters.txt
+# 1. Location of Mutagenesis
 # 2. Mutagenesis for 5 Amino Acids
 
 import sys
@@ -16,6 +16,9 @@ from collections import defaultdict
 
 #Opens the necessary files for Input and Output
 number = sys.argv[1]
+firstPosition = int(sys.argv[2])
+lastPosition = int(sys.argv[3])
+
 fileName1 = number+'_sense'
 fileName2 = number+'_peptide'
 input=open(fileName1,'r')
@@ -25,11 +28,10 @@ peptides=dict()
 sequences=defaultdict(defaultdict)
 counter=0    
 
-
 for line in input:
     counter+=1
     line=line.strip()    
-    sense=line[54:69]  
+    sense=line[firstPosition:lastPosition]
     peptide=mod575.translate_dna(sense)
     if peptide in peptides:
         peptides[peptide]+=1
