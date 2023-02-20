@@ -1,5 +1,5 @@
 #! /usr/bin/Rscript
-#YuEnoch 13-11-2022
+#YuEnoch 20-02-2023
 #PCAprocessor.R 
 #Based off code from Dr. Matt Holding
 
@@ -9,24 +9,25 @@
 #         Plots the PCA visualization
 #         Plots the Goodness of Fit when testing different number of cluster
 #         Plots the Loadings of each property at each residue
-#Changes across Experiments: alter accordingly
-# 1. Mutagenesis for 5 Amino Acids
-# 2. NNK Mutagenesis
+#Changes across Experiments: please alter on parameters.txt
+# 1. Location of Mutagenesis
+# 2. Mutagenesis for 5 Amino Acid
 
 #Edit the Following: working directory, treatments, file locations
 args = commandArgs(trailingOnly=TRUE)
 folder = args[1]
+treatments = unlist(strsplit(args[2], split = ","))
+PCAcomponents = args[3]
+PCAclusters = args[4]
+
 source(paste0(folder, '/PCA Analysis/SeqSpace main function.R'))
 source(paste0(folder, '/PCA Analysis/Plots.R'))
 res.prop1 <- readRDS(paste0(folder,'/PCA Analysis/config.rds')) #contains the properties of each Amino Acid
-treatments <- c("cathepsinG", "hpr3", "elastase")
 
 #########
 # Setup #
 #########
-
 res.prop1
-
 colours<-palette(c("blue",       #1
                    "red",        #2
                    "yellow",     #3
@@ -47,9 +48,7 @@ colours<-palette(c("blue",       #1
                    "cadetblue", #18
                    "darkolivegreen", #19
                    "darkorchid4" #20
-                   
 )) 
-
 
 ##############
 # File names #
@@ -71,11 +70,9 @@ library(vctrs)
 ############
 
 for (i in 1:length(treatments)){
-
   setwd(folder)  
   name = treatments[i]
-  
-  SAPCA <- PCA_MSA (MSA = paste('enrich_',name, '_bonf_deseq2.fasta', sep = ''), res.prop = res.prop1, clusterPCs = 3, clusters = 1:10)
+  SAPCA <- PCA_MSA (MSA = paste('enrich_',name, '_bonf_deseq2.fasta', sep = ''), res.prop = res.prop1, clusterPCs = PCAcomponents, clusters = 1:PCAclusters)
   #Conducts the PCA Analysis to cluster the significantly enriched peptides
     #res.prop: contains properties of each Amino Acid (Charge, Disorder, HPATH, RMW)
     #clusterPCs: how many Principal Components to be used
