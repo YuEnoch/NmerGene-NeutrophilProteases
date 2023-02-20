@@ -7,7 +7,7 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 
 **To Start (based on default parameters, testing data):**
 1. Download Repository and Unzip
-2. Run SeqSpacer.py (*Ensure correct R Version)
+2. Run SeqSpacer.py
 3. A Python Popup should appear and the Pipeline would automatically run using the Test Files
 4. The Plots and Reults would all appear within the file and its folders
 
