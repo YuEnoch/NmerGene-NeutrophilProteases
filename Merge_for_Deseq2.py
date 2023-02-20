@@ -25,7 +25,7 @@ numberOfTreatments = sys.argv[2] #Example: 8
 num = int(numberOfTreatments)
 treatments = sys.argv[3] #Example: C1,C2,E1,E2,H1,H2,N1,N2
 treatments = treatments.split(',')
-minCount = sys.argv[4] #Minimum Count for Each Peptide (across the row)
+minCount = int(sys.argv[4]) #Minimum Count for Each Peptide (across the row)
 
 
 combinations=open('NNK5_combinations.txt','r')	#All Possible Combinations for 5 amino acids
