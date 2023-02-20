@@ -1,12 +1,15 @@
-#YuEnoch 13-11-2022
+#YuEnoch 20-02-2023
 #Merge_for_Deseq2.py 
 #Based off code from Dr. Kart Tomberg -> https://github.com/tombergk/NNK_VWF73/
 
 #Purpose: takes in all Peptide Counts for each treatment and merges all into one Table (ready to be analyzed by Deseq2), with peptides of low counts filtered out
-#Changes across Experiments: alter accordingly
+#Changes across Experiments: please alter on parameters.txt
+# 1. Location of Mutagenesis
+# 2. Mutagenesis for 5 Amino Acids
+# 3. Number of Treatments
+
+#Manual Changes: please alter within this Python Script
 # 1. Filters any peptide where total counts across all treatments are below 6 (or any defined Threshold)
-# 2. For experiments with 6/9/12 total Treatments (adjustable)
-# 3. Mutagenesis for 5 Amino Acids
 
 import sys
 import re
