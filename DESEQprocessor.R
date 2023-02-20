@@ -65,7 +65,7 @@ print(ncol(countData))
 print(nrow(colData))
 dds=DESeqDataSetFromMatrix(countData, colData, formula(~ condition))
 dds$condition <- relevel(dds$condition, ref = control)  #set input counts to be reference level
-keep <- rowSums(counts(dds)) >= 10 #rid dds of very-low-count peptides
+#keep <- rowSums(counts(dds)) >= 10 #gets rid of very-low-count peptides, optional
 dds <- dds[keep,]
 
 dds=DESeq(dds)
