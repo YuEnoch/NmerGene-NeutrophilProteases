@@ -1,0 +1,25 @@
+*** Treatment Details ***
+Experiment Name = NeutrophilProteases
+Experiments = cathepsinG, elastase, hpr3
+Control Name = N
+
+Treatments = 8
+N-plicates (duplicate/triplicate/etc.) = 2
+Treatment Names = C, E, H, N
+All Treatment Names = C1, C2, E1, E2, H1, H2, N1, N2
+
+*** Mutagenesis Sequencing ***
+First Position = 55
+Last Position = 69
+N-mer = 5
+Min Count for each peptide (for DESEQ2) = 6
+
+***
+Files in Gzip (no/yes) = no
+Single/Parallel One-End Read = parallel
+
+*** Principal Component Analysis ***
+Principal Components Used = 3
+Limit of Clusters = 10 
+
+*** Note: Please Keep Formatting Same **
