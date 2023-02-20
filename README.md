@@ -26,16 +26,16 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 
 ## Contents
 
-* [Set-Up] (#set-up)
-* [Raw FastQ File Processing - Trimming, Filtering, Translation] (#raw-fastq-file-processing---trimming-filtering-translation)
-* [DESEQ2 Analysis for Significantly Enriched Peptides using R] (#deseq2)
-* [Principal Component Analysis to cluster Significatly Enriched Peptides] (#pca)
-* [Weblogo Analysis for clusters] (#weblogo)
+* [Set-Up](#set-up)
+* [Raw FastQ File Processing - Trimming, Filtering, Translation](#raw-fastq-file-processing---trimming-filtering-translation)
+* [DESEQ2 Analysis for Significantly Enriched Peptides using R](#deseq2)
+* [Principal Component Analysis to cluster Significatly Enriched Peptides](#pca)
+* [Weblogo Analysis for clusters](#weblogo)
 
-* [Amino Acid Frequency Analysis] (#aa-freq)
-* [Nucleic Acid Frequency Analysis] (#na-freq)
-* [Observed/Expected Amino Acid Frequency Analysis] (#obs-exp)
-* [Test Files] (#test-files)
+* [Amino Acid Frequency Analysis](#aa-freq)
+* [Nucleic Acid Frequency Analysis](#na-freq)
+* [Observed/Expected Amino Acid Frequency Analysis](#obs-exp)
+* [Test Files](#test-files)
 
 ### Set-Up
 To set up this program, place all the files in the same folder (as organized by default). All folder directories would be set-up automatically, with the program ready to run on the test set (run NmerGene.py). The parameters.txt contains all the editable parameters available. Please edit each while maintaining the same formatting and spacing. 
