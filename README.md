@@ -27,7 +27,7 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 ## Contents
 
 * [Set-Up] (#set-up)
-* [Raw FastQ File Processing - Trimming, Filtering, Translation] (#fastq-processing)
+* [Raw FastQ File Processing - Trimming, Filtering, Translation] (#Raw-FastQ-File-Processing---Trimming,-Filtering,-Translation)
 * [DESEQ2 Analysis for Significantly Enriched Peptides using R] (#deseq2)
 * [Principal Component Analysis to cluster Significatly Enriched Peptides] (#pca)
 * [Weblogo Analysis for clusters] (#weblogo)
