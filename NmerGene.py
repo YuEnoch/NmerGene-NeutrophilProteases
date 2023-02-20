@@ -69,7 +69,6 @@ treatments = getDetails(input.readline(), 'i')
 n_plicates = getDetails(input.readline(), 'i')  #duplicates, triplicates, etc.
 treatmentNames = getDetails(input.readline(), 'l')
 allTreatments = getDetails(input.readline(), 'l')
-treatmentList = ','.join(allTreatments)
 
 input.readline()
 input.readline()
@@ -147,6 +146,7 @@ for i in range(int(len(allTreatments)/n_plicates)):
 
 
 #Merge_for_Deseq2.py: merges Peptide Frequnecies across all treatments into one file, for subsequent Deseq2 analysis
+treatmentList = ','.join(allTreatments)
 call(["python3", "Merge_for_Deseq2.py", experimentName, str(treatments), treatmentList, minCount])
 
 
