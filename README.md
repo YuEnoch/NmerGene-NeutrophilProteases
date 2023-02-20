@@ -42,7 +42,7 @@ To set up this program, place all the files in the same folder (as organized by 
 
 Experiment Criteria: Any number of experiments, with 1 control. The number of n-plicates should be the same for all (e.g. A1, A2, B1, B2, N1, N2, where N is the control). This program accepts one-end reads (single or parallel). If they are paired-end, please merge them prior.
 
-To run the program, place the raw FastQ or Gzip files within the folder and edit the parameters.txt accordingly. Once everything is saved, run NmerGene.py
+To run the program, place the raw FastQ or Gzip files within the folder and edit the parameters.txt accordingly (below). Once everything is saved, run NmerGene.py
 
 ```
 *** Treatment Details ***
@@ -68,7 +68,6 @@ Single/Parallel One-End Read = parallel
 *** Principal Component Analysis ***
 Principal Components Used = 3
 Limit of Clusters = 10 
-
 ```
 
 
