@@ -1,5 +1,5 @@
 #! /usr/bin/Rscript
-#YuEnoch 13-11-2022
+#YuEnoch 20-02-2023
 #DESEQprocessor.R 
 #Based off code from Dr. Kart Tomberg -> https://github.com/tombergk/NNK_VWF73/
 #                and Dr. Matt Holding
@@ -15,63 +15,24 @@
 # 1. Mutagenesis for 5 Amino Acids
 # 2. NNK Mutagenesis
 
-#EDIT the Following: working directory, treatment columns, replicates, Merged DESeq Csv file location
-#change folder to the location of your folder
+
 args = commandArgs(trailingOnly=TRUE)
 folder = args[1]
-coldata = c("cathepsinG","cathepsinG","hpr3","hpr3","elastase","elastase","N","N")
-replicates = c("C1","C2","H1","H2","E1","E2","N1","N2")
-treatments <- c("cathepsinG", "hpr3", "elastase")
-experiment = "Neutrophils"
+coldata = unlist(strsplit(args[2], split = ","))
+replicates = unlist(strsplit(args[3], split = ","))
+treatments = unlist(strsplit(args[4], split = ","))
+control = args[5]
+experiment = args[6]
 data <- read.csv(paste0(folder, "/", experiment, "_merged.csv"),header=TRUE,row.names=1)
-
 setwd(folder)
 
 
-#coldata = c("control","control","control","AEBSF","AEBSF","AEBSF","EDTA","EDTA","EDTA","AEBSF+EDTA","AEBSF+EDTA","AEBSF+EDTA", "N","N","N")
-#replicates = c("C1",    "C2",   "C3",   "A1",   "A2",   "A3",   "E1",   "E2",   "E3", "AE1",   "AE2",   "AE3",   "N1",   "N2",   "N3")
-
-#coldata = c("cathepsinG","cathepsinG","hpr3","hpr3","elastase","elastase","N","N")
-#replicates = c("C1",    "C2",   "H1",   "H2",    "E1",   "E2", "N1",   "N2")
-#treatments = c("AEBSF", "EDTA", "AEBSF+EDTA", "N")
-
-
-# install.packages("BiocManager")
-# install.packages("edgeR")
-# install.packages("Logolas")
-# install.packages("tidyverse")
-# install.packages("vsn")
-# install.packages("ggVennDiagram")
-# install.packages("dplyr")
-# install.packages("tidyr")
-# install.packages("expss")
-# install.packages("EnhancedVolcano")
-# install.packages("gridExtra")
-# install.packages("ggdendro")
-# install.packages("viridis")
-# install.packages("plotly")
-# install.packages("factoextra")
-# install.packages("apeglm")
-# install.packages("ashr")
-# install.packages("IHW")
-# install.packages("PoiClaClu")
-# install.packages("httr")
-# install.packages("gtable")
-# install.packages("munsell")
-# install.packages("colorspace")
-# install.packages("scales")
-# install.packages("vctrs")
-# install.packages("utf8")
-# BiocManager::install("DECIPHER")
-# BiocManager::install("DESeq2")
-
-
-#load R packages for DEG data analysis
+#load R packages for DESEQ2 data analysis
 library(DESeq2)
-# library(ashr)
-# library(IHW)
-# library(PoiClaClu)
-# library(vctrs)
+#library(ashr)
+#library(IHW)
+#library(PoiClaClu)
+#library(vctrs)
 
 #load R packages for data visualization
 library(RColorBrewer)
@@ -99,25 +60,28 @@ stop_ct <- orig_ct - new_ct
 print(paste("Removed",stop_ct, "stop codon substitutions.")); print(paste(round(stop_ct/length(data[,1])*100,digits = 1), "percent of substitutions were stops."))
 countData <- as.matrix(data_NS)
 colData <- data.frame(condition=factor(coldata))
+
+print(ncol(countData))
+print(nrow(colData))
 dds=DESeqDataSetFromMatrix(countData, colData, formula(~ condition))
-dds$condition <- relevel(dds$condition, ref = "N")  #set input counts to be reference level
+dds$condition <- relevel(dds$condition, ref = control)  #set input counts to be reference level
 keep <- rowSums(counts(dds)) >= 10 #rid dds of very-low-count peptides
 dds <- dds[keep,]
-
 
 dds=DESeq(dds)
 saveRDS(dds, file = "dds_object.rds")
 
-#The above part could be skipped if the code was ran before and the RDS file was already generated
-dds
+#The above part of DESEQ2 analysis could be skipped if the code was ran before and the RDS file was already generated
+
 #This was generated with the above code, but loaded now for speed
+dds
 dds <- readRDS(paste0(folder,"/dds_object.rds"))
 dir.create("Significant_Peptides")
 
 print("Creating Plots...")
 for (i in 1:length(treatments)){
   treatments[i]
-  res_bonf <- results(dds, contrast=c("condition",treatments[i],"N"), alpha=0.05,pAdjustMethod = "bonferroni")
+  res_bonf <- results(dds, contrast=c("condition",treatments[i],control), alpha=0.05,pAdjustMethod = "bonferroni")
   pdf(paste0(treatments[i], '_DEseq_plotMA.pdf'))
   plotMA(res_bonf,alpha=.05,ylim=c(-8,8),main='Plot')
   dev.off()
@@ -125,11 +89,10 @@ for (i in 1:length(treatments)){
 
 
 for (i in 1:length(treatments)){
-  
   print(treatments[i])
-  
+
   #standard FDR 0.05
-  res_fdr <- results(dds, contrast=c("condition",treatments[i],"N"), alpha=0.05,pAdjustMethod = "fdr")
+  res_fdr <- results(dds, contrast=c("condition",treatments[i],control), alpha=0.05,pAdjustMethod = "fdr")
   summary(res_fdr)
   res_fdr_sig <- subset(as.data.frame(res_fdr[order(res_fdr$pvalue),]), padj < 0.05)
   AA_seq <- rownames(res_fdr_sig)
@@ -137,7 +100,7 @@ for (i in 1:length(treatments)){
   write.table(res_fdr_sig,file=paste0("Significant_Peptides/",treatments[i],"_fdr_deseq2.txt"), col.names=TRUE, append=FALSE, quote=FALSE, row.names = FALSE)
   
   #bonferroni 0.05
-  res_bonf <- results(dds, contrast=c("condition",treatments[i],"N"), alpha=0.05,pAdjustMethod = "bonferroni")
+  res_bonf <- results(dds, contrast=c("condition",treatments[i],control), alpha=0.05,pAdjustMethod = "bonferroni")
   summary(res_bonf)
   res_bonf_sig <- subset(as.data.frame(res_bonf[order(res_bonf$pvalue),]), padj < 0.05)
   
@@ -148,9 +111,7 @@ for (i in 1:length(treatments)){
   write.table(res_bonf_sig,file=paste0("Significant_Peptides/",treatments[i],"_bonf_deseq2.txt"), col.names=TRUE, append=FALSE, quote=FALSE, row.names = FALSE)
   write.table(res_bonf_sig_enrich,file=paste0("Significant_Peptides/","enrich_",treatments[i],"_bonf_deseq2.txt"), col.names=TRUE, append=FALSE, quote=FALSE, row.names = FALSE)
   write.table(res_bonf_sig_deplete,file=paste0("Significant_Peptides/","deplete_",treatments[i],"_bonf_deseq2.txt"), col.names=TRUE, append=FALSE, quote=FALSE, row.names = FALSE)
-  
-  
-  
+
   #plot most significant gene for each treatment:  
   ix = which.min(res_fdr$padj) # most significant
   png(paste(treatments[i],"_Significant.png", sep=""))
@@ -167,8 +128,5 @@ for (i in 1:length(treatments)){
   plot <- ggVennDiagram(venn_list)
   print(plot)
   dev.off()
-  
-  
-
 }
 
