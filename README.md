@@ -15,8 +15,8 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 * R (with R Script Path setup) 
 * [DESeq2](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
 * [MClust](https://cran.r-project.org/web/packages/mclust/vignettes/mclust.html)
-- [Weblogo](https://github.com/WebLogo/weblogo)
-- Installation of Other R Packages for Visualization (specified in the R Scripts)
+* [Weblogo](https://github.com/WebLogo/weblogo)
+* Installation of Other R Packages for Visualization (specified in the R Scripts)
 
 
 **To Adjust for different Sequencing Experiments:**
@@ -24,13 +24,12 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
    - Ensure that the formatting is the same
 2. Change Seeds (Conserved Sequences) in clean_fastq.py, based on your sequencing
 
-**It contains:**
+##Contents
 
-- Information about raw fastq file and its details
-- All in-house developed scripts for read mapping, filtering, and translation
-- DESEQ2 analysis for significantly enriched peptides
-- Principal Component Analysis to cluster significatly enriched peptides
-- Weblogo Analysis for clusters
+* [Raw FastQ File Processing - Trimming, Filtering, Translation] (#fastq-processing)
+* [DESEQ2 Analysis for Significantly Enriched Peptides using R] (#deseq2)
+* [Principal Component Analysis to cluster Significatly Enriched Peptides] (#pca)
+* [Weblogo Analysis for clusters] (#weblogo)
 
 - Frequency Analysis for Amino Acids, Nucleic Acids, and Oberved/Expected Amino Acids
 - Code to generate plots for the above analyses
