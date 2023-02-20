@@ -11,10 +11,13 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 4. The Plots and Reults would all appear within the file and its folders
 
 **Prerequisites:**
-- Python 3
-- R (with R Script Path setup) 
-- Installation of R Packages (specified in DESEQprocessor.R, PCAprocessor.R)
-- Installation of Weblogo: https://github.com/WebLogo/weblogo, go to CMD and enter pip install weblogo
+* Python 3
+* R (with R Script Path setup) 
+* [DESeq2](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
+* [MClust](https://cran.r-project.org/web/packages/mclust/vignettes/mclust.html)
+- [Weblogo](https://github.com/WebLogo/weblogo)
+- Installation of Other R Packages for Visualization (specified in the R Scripts)
+
 
 **To Adjust for different Sequencing Experiments:**
 1. Change Parameters in parameters.txt (# of treatments, # of n_plicates, experiment/treatment names, gzip, etc.)
