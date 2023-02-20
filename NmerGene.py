@@ -112,7 +112,7 @@ def find_files(fileName):              #Find File Location (if FastQ not in same
 
 #clean_fastq.py: takes in raw FastQ data (single-end read) and filters sequencing reads by Quality and Matched Seeds, to obtain good Sense sequences (and Junk data)
 #getPeptides.py: takes in Sense sequences and translates the Mutagenesis Region to obtain a table of Peptide Frequencies
-'''
+
 for i in range(len(allTreatments)):
     name = allTreatments[i]
 
@@ -149,7 +149,7 @@ for i in range(int(len(allTreatments)/n_plicates)):
 #Merge_for_Deseq2.py: merges Peptide Frequnecies across all treatments into one file, for subsequent Deseq2 analysis
 call(["python3", "Merge_for_Deseq2.py", experimentName, str(treatments), treatmentList, minCount])
 
-'''
+
 #Variables for R Scripts
 colData = ''
 for treatment in experiments + control:
