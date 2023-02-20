@@ -1,4 +1,4 @@
-#YuEnoch 13-11-2022
+#YuEnoch 20-02-2023
 #WeblogoProcessor.py 
 #Uses Weblogo Package from https://github.com/WebLogo/weblogo
 
@@ -17,7 +17,8 @@ from PIL import ImageDraw
 from PIL import ImageFont
 import io
 import binascii
-import csv    
+import csv
+import os
 
 def find(name):     #finds the file if in folder
     path = os.getcwd()
