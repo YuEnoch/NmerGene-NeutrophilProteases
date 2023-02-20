@@ -1,5 +1,5 @@
 #YuEnoch 20-02-2023
-#SeqSpace.py 
+#NmerGene.py 
 #Based off code from Dr. Kart Tomberg -> https://github.com/tombergk/NNK_VWF73/
 
 #Purpose: Runs All the Analyses involved, takes in 5AA Mutagenesis Data to derive a merged table (ready for Deseq2), AA_frequencies, Nucleic Acid frequencies
