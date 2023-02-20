@@ -1,5 +1,5 @@
 #YuEnoch 20-02-2023
-#MainFile.py 
+#SeqSpace.py 
 #Based off code from Dr. Kart Tomberg -> https://github.com/tombergk/NNK_VWF73/
 
 #Purpose: Runs All the Analyses involved, takes in 5AA Mutagenesis Data to derive a merged table (ready for Deseq2), AA_frequencies, Nucleic Acid frequencies
@@ -12,14 +12,14 @@
 # 1. Number of Replicates are same for all experiments and control. There should only be one control.
 #    Example: A1, A2, A3, B1, B2, B3, N1, N2, N3 (where A/B are the experiments, N is the control)
 
-# 2. Mutagenesis occurs as one segment between two positions
+# 2. Mutagenesis occurs as one segment between two positions (edit in parameters.txt)
 #    Example: positions 55-69 inclusive (15 nucleotides, for a 5-mer) (NOTE: the position difference and n-mers should match)
 
-# 3. Matched Seeds (the conserved sequences used) in clean_fastq.py
+# 3. Matched Seeds (the conserved sequences used) in clean_fastq.py (edit manually in clean_fastq.py)
 #    NOTE: please edit manually in clean_fastq.py for your own sequencing
 
-# 4. Quality Threshold (removes reads when any two consecutive quality scores are both below 28)
-# 5. Only peptides with a total count over 6 across all treatments would be analyzed in Deseq2
+# 4. Quality Threshold (removes reads when any two consecutive quality scores are both below 28) (edit manually in clean_fastq.py)
+# 5. Only peptides with a total count over 6 across all treatments would be analyzed in Deseq2 (edit in parameters.txt)
 
 #Requirements:
 # 1. All FastQ/Gzip files are stored in the same folder
@@ -84,6 +84,7 @@ else:
     firstPosition = str(firstPosition)
     lastPosition = str(lastPosition)
     n_mer = str(n_mer)
+minCount = str(getDetails(input.readline(), 'i'))
 
 input.readline()
 input.readline()
@@ -146,7 +147,7 @@ for i in range(int(len(allTreatments)/n_plicates)):
 
 
 #Merge_for_Deseq2.py: merges Peptide Frequnecies across all treatments into one file, for subsequent Deseq2 analysis
-call(["python3", "Merge_for_Deseq2.py", experimentName, str(treatments), treatmentList])
+call(["python3", "Merge_for_Deseq2.py", experimentName, str(treatments), treatmentList, minCount])
 
 '''
 #Variables for R Scripts
