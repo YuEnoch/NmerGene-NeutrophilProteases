@@ -1,4 +1,4 @@
-#YuEnoch 13-11-2022
+#YuEnoch 20-02-2023
 #getNucleiAcidCount.py 
 #Based off code from Dr. Kart Tomberg -> https://github.com/tombergk/NNK_VWF73/
 
