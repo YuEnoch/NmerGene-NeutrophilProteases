@@ -30,7 +30,7 @@
 #      R files require packages to be installed (details in R files)
 #      Ensure that the RScript Path is setup properly on your device
 #           Troubleshooting: If Path is not working, replace Rscript with:
-#           Windows: C:\Program Files\R\R-4.1.2\bin\Rscript.exe
+#           Windows: C:/Program Files/R/R-4.1.2/bin/Rscript.exe
 #           Linux: rwrapper.executable=/usr/lib/R/bin/Rscript
 #           Mac: /usr/bin/Rscript
 
