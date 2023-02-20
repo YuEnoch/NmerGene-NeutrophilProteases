@@ -1,4 +1,4 @@
-#YuEnoch 20-02-2023
+#YuEnoch 13-11-2022
 #Merge_for_Deseq2.py 
 #Based off code from Dr. Kart Tomberg -> https://github.com/tombergk/NNK_VWF73/
 
@@ -25,6 +25,7 @@ numberOfTreatments = sys.argv[2] #Example: 8
 num = int(numberOfTreatments)
 treatments = sys.argv[3] #Example: C1,C2,E1,E2,H1,H2,N1,N2
 treatments = treatments.split(',')
+minCount = sys.argv[4] #Minimum Count for Each Peptide (across the row)
 
 
 combinations=open('NNK5_combinations.txt','r')	#All Possible Combinations for 5 amino acids
@@ -61,7 +62,7 @@ for peptide in peptides:
     sum = 0
     for i in range(num):
         sum += int(globals()['peptide%s' % i][peptide])
-    if sum<6: 		#Threshold of 6. If total counts for that peptide is below 6, it is not added to final result
+    if sum<minCount: 	#Threshold. If total counts for that peptide is below minCount, it is not added to final result
         noreads+=1
         continue
     else:
