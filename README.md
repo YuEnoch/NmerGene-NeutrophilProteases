@@ -26,14 +26,14 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 
 ## Contents
 
-* [Set-Up](#set-up)
+* [Set-Up NmerGene](#set-up-nmergene)
 * [Raw FastQ File Processing - Trimming, Filtering, Translation](#raw-fastq-file-processing---trimming-filtering-translation)
 * [DESEQ2 Analysis for Significantly Enriched Peptides using R](#deseq2-analysis-for-significantly-enriched-peptides-using-r)
 * [Principal Component Analysis to cluster Significatly Enriched Peptides](#principal-component-analysis-to-cluster-significatly-enriched-peptides)
 * [Weblogo Analysis for clusters](#weblogo-analysis-for-clusters)
 * [Test Files](#test-files)
 
-### Set-Up
+### Set-Up NmerGene
 To set up this program, place all the files in the same folder (as organized by default). All folder directories would be set-up automatically, with the program ready to run on the test set (run NmerGene.py). The parameters.txt contains all the editable parameters available. Please edit each while maintaining the same formatting and spacing. 
 
 Experiment Criteria: Any number of experiments, with 1 control. The number of n-plicates should be the same for all (e.g. A1, A2, B1, B2, N1, N2, where N is the control). This program accepts one-end reads (single or parallel). If they are paired-end, please merge them prior.
