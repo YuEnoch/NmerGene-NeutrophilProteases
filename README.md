@@ -71,7 +71,22 @@ Limit of Clusters = 10
 ```
 
 
-### Raw FastQ File Processing - Trimming, Filtering, Translation
+### Raw FastQ File Processing - Filtering, Trimming, Translation
+This program would filter reads where two consecutive reads have a quality score below 28, while only processing reads that contain matched seeds (conserved sequences) that the original genome should contain. This ensures that the reads moving towards DESEQ2 are of high quality and reliable.
+
+```
+call(["python3", "clean_fastq.py", name, fileName1, fileName2, gzipChoice, firstPosition, lastPosition])
+```
+
+These reads are then trimmd and translated, based on the mutagenesis locations specified. The frequencies of each Amino Acid and Nucleic Acid, at each position, are computed and presented in the files AAFreq and NucFreq
+
+```
+call(["python3", "getPeptides.py", name, firstPosition, lastPosition])
+
+call(["python3", "getAminoAcidCount.py", name, firstPosition, lastPosition])
+call(["python3", "getNucleicAcidCount.py", name, firstPosition, lastPosition])
+call(["python3", "ObservedExpectedPlot.py", name, n_mer])
+```
 
 
 
