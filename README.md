@@ -99,6 +99,9 @@ for i in range(len(experiments)):
 
 ![DESEQ2Result](/ReferenceImages/cathepsinG_FDRvsBonferroni.png "FDR vs Bonferroni Image")
 ![DESEQ2Result](/ReferenceImages/cathepsinG_DEseq_plotMA.png "Enrichment Volcano Plot")
+<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_FDRvsBonferroni.png" width="200" />
+
+
 DESEQ2 Results for Cathepsin G on the Test Subset
 
 ### Principal Component Analysis to cluster Significatly Enriched Peptides
