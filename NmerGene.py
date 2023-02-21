@@ -148,7 +148,7 @@ call(["python3", "FrequencyAnalysis.py", ','.join(treatmentNames), ','.join(allT
 
 #Merge_for_Deseq2.py: merges Peptide Frequnecies across all treatments into one file, for subsequent Deseq2 analysis
 treatmentList = ','.join(allTreatments)
-call(["python3", "Merge_for_Deseq2.py", experimentName, str(treatments), treatmentList, minCount])
+call(["python3", "Merge_for_Deseq2.py", experimentName, str(treatments), treatmentList, minCount, n_mer])
 
 
 #Variables for R Scripts
