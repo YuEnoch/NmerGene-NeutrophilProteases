@@ -5,7 +5,7 @@ This folder contains files involved in the high throughput sequencing analysis f
 This program can accommodate any n-mer mutagenesis library at any location, for any number of experments/replicates. Please specify these details in parameter.txt, which has all the default settings. It analyzes one-end reads, which could be single or in parallel. 
 
 **To Start (based on default parameters, testing data):**
-1. Download Repository and Unzip Folder
+1. Download this Repository and Extract the Folder
 2. Run [NmerGene.py](/NmerGene.py)
 3. A Python Popup should appear and the Pipeline would automatically run using the Test Files
 4. The Plots and Reults would all appear within the file and its folders
@@ -20,7 +20,7 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 
 
 **To Adjust for different Sequencing Experiments:**
-1. Change Parameters in parameters.txt (# of treatments, # of n_plicates, experiment/treatment names, gzip, etc.)
+1. Change Parameters in [parameters.txt](/parameters.txt) (# of treatments, # of n_plicates, experiment/treatment names, gzip, etc.)
    - Ensure that the formatting is the same
 2. Change Seeds (Conserved Sequences) in clean_fastq.py, based on your sequencing
 
