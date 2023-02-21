@@ -139,9 +139,12 @@ Within the repository (located in the Test Files folder) is a a subset of the FA
 
 The code adapts work from:
 - Dr. Kart Tomberg https://github.com/tombergk/NNK_VWF73/
-- Dr. Matt Holding
+- Dr. Matt Holding https://github.com/Matthew-Holding
 
+**mod575.py**: written by Dr. Kart Tomberg
 
-mod575.py is written by Dr. Kart Tomberg
+**PCA Analysis Files**: from Dr. Matt Holding
 
-files in PCA Analysis from Dr. Matt Holding
+**DESEQ2**: Love MI, Huber W, Anders S (2014). “Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2.” Genome Biology, 15, 550. doi: 10.1186/s13059-014-0550-8.
+
+**MClust**: Scrucca L, Fop M, Murphy TB, Raftery AE (2016). “mclust 5: clustering, classification and density estimation using Gaussian finite mixture models.” The R Journal, 8(1), 289–317. https://doi.org/10.32614/RJ-2016-021.
