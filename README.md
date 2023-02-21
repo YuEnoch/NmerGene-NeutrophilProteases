@@ -96,7 +96,7 @@ for i in range(len(experiments)):
     fileName1 = find_files('enrich_'+experiments[i]+'_bonf_deseq2.txt')
     call(["python3", "DESEQtoFASTA.py", experiments[i], fileName1])
 ```
-<p float="middle">
+<p align="middle">
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_FDRvsBonferroni.png" width="400" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_DEseq_plotMA.png" width="400" />
 </p>                                                                                                                                        
@@ -110,7 +110,7 @@ The default is 3 Principal Components and 10 Maximum Cluters. These can be adjus
 ```
 subprocess.call(["Rscript", os.getcwd() + "/PCAprocessor.r", os.getcwd(), experimentData, PCAcomponents, PCAclusters], shell=True)
 ```
-<p float="middle">
+<p align="middle">
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_3DPlot_1.png" width="300" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_GoodnessOfFit.png" width="300" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Loadings.png" width="300" />
@@ -123,7 +123,7 @@ To visualize the peptide motifs of each cluster, sequence logos are created usin
 ```
 call(["python3", "WeblogoProcessor.py", treatmentList])
 ```
-<p float="middle">
+<p align="middle">
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_1_logo.png" width="100" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_2_logo.png" width="100" />
 </p>                                                                                                                                       
