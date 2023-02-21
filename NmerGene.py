@@ -26,7 +26,7 @@
 # 2. Single-End Reads conducted in Parallel (each treatment has 2 FastQ Files, separate and not complementary)
 #    Not Paired-End Reads
 # 3. Each n-mer requires a list of all possible n-mer sequences (e.g. NNK5_combinations.txt). If your n-mer is 6 or above, please generate your own combinations file 
-#    using a nested for loop and move it into the folder. The combinations for 5 and below are included in the repository (filesize too large for >5 n-mers).
+#    using a nested for loop and move it into the folder (MakeNNKCombinatons.py). The combinations for 5 and below are included in the repository (filesize too large for >5 n-mers).
 
 
 #NOTE: Please edit the parameters.txt file (keep the formatting same)
