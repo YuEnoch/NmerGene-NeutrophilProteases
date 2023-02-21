@@ -100,7 +100,7 @@ for i in range(len(experiments)):
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_FDRvsBonferroni.png" width="400" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_DEseq_plotMA.png" width="400" />
 </p>                                                                                                                                        
-**DESEQ2 Results for Cathepsin G on the Test Subset
+**DESEQ2 Results for Cathepsin G on the Test Subset**
 
 ### Principal Component Analysis to cluster Significatly Enriched Peptides
 Principal Component Analysis uses key properties of Amino Acids (Charge, Disorder, HPATH, RMW) and attaches a weight to each position's Amino Acid properties. This creates a principal component. PCA Analysis aims to create principal components in a way that generates the furthest separation between groups, forming clusters of peptides with similar properties. This is crucial towards deconvoluting the peptides and identifying peptide signatures that reveal information about enrichment.
@@ -115,7 +115,7 @@ subprocess.call(["Rscript", os.getcwd() + "/PCAprocessor.r", os.getcwd(), experi
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_GoodnessOfFit.png" width="300" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Loadings.png" width="300" />
 </p>                                                                                                                                       
-**PCA Results for Cathepsin G on the Test Subset
+**PCA Results for Cathepsin G on the Test Subset**
 
 ### Weblogo Analysis for clusters
 To visualize the peptide motifs of each cluster, sequence logos are created using Weblogo software. 
@@ -127,7 +127,7 @@ call(["python3", "WeblogoProcessor.py", treatmentList])
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_1_logo.png" width="100" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_2_logo.png" width="100" />
 </p>                                                                                                                                       
-**Weblogo for Cathepsin G on the Test Subset
+**Weblogo for Cathepsin G on the Test Subset**
 
 ### Test Files
 Within the repository (located in the Test Files folder) is a a subset of the FASTQ sequencing results for Neutrophil Proteases Cathepsin G (C), Elastase (E), and Human Proteinase 3 (H) with an unselected control (N). The experiments were done in duplicates. The default parameters in parameters.txt were based off this experiment.
