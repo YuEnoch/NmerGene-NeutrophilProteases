@@ -111,9 +111,9 @@ The default is 3 Principal Components and 10 Maximum Cluters. These can be adjus
 subprocess.call(["Rscript", os.getcwd() + "/PCAprocessor.r", os.getcwd(), experimentData, PCAcomponents, PCAclusters], shell=True)
 ```
 <p float="middle">
-   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_3DPlot_1.png" width="400" />
-   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_GoodnessOfFit.png" width="400" />
-   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Loadings.png" width="400" />
+   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_3DPlot_1.png" width="300" />
+   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_GoodnessOfFit.png" width="300" />
+   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Loadings.png" width="300" />
 </p>                                                                                                                                       
 **PCA Results for Cathepsin G on the Test Subset**
 
