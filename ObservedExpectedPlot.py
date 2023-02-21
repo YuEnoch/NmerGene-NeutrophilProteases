@@ -88,7 +88,7 @@ for i in range(n_mer*3):
         a+=NUC[j][i]
     sums.append(a)
 for i in range(n_mer*3):
-    a = number + "\t" + str(i) + "\t"
+    a = number + "\t" + str(i+1) + "\t"
     for j in range(4):
         frequency = NUC[j][i]/sums[i]
         a+= str(frequency) + "\t"
