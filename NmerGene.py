@@ -130,7 +130,8 @@ for i in range(len(allTreatments)):
     call(["python3", "getAminoAcidCount.py", name, n_mer])
     call(["python3", "getNucleicAcidCount.py", name, firstPosition, lastPosition])
     call(["python3", "ObservedExpectedPlot.py", name, n_mer])
-    
+
+call(["python3", "FrequencyAnalysis.py", ','.join(treatmentNames), ','.join(allTreatments)])
 
 #Generates Observed/Expected, Nucleotide, Amino Acid Frequencies for one treatment (combining its n-plicates)
 for i in range(int(len(allTreatments)/n_plicates)): 
