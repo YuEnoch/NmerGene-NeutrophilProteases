@@ -39,10 +39,10 @@ for line in input:
     peptide=row[0]		
     count=int(row[1])
     for i in range(n_mer):
-        if peptide[0] in globals()['AA%s' % i]:
-            globals()['AA%s' % i][peptide[0]]+=count
+        if peptide[i] in globals()['AA%s' % i]:
+            globals()['AA%s' % i][peptide[i]]+=count
         else:
-            globals()['AA%s' % i][peptide[0]] = count
+            globals()['AA%s' % i][peptide[i]] = count
 
 for aa in sorted(AA):	
     data=number+'\t'+aa
