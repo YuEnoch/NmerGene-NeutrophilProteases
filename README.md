@@ -31,10 +31,6 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 * [DESEQ2 Analysis for Significantly Enriched Peptides using R](#deseq2)
 * [Principal Component Analysis to cluster Significatly Enriched Peptides](#pca)
 * [Weblogo Analysis for clusters](#weblogo)
-
-* [Amino Acid Frequency Analysis](#aa-freq)
-* [Nucleic Acid Frequency Analysis](#na-freq)
-* [Observed/Expected Amino Acid Frequency Analysis](#obs-exp)
 * [Test Files](#test-files)
 
 ### Set-Up
@@ -78,7 +74,7 @@ This program would filter reads where two consecutive reads have a quality score
 call(["python3", "clean_fastq.py", name, fileName1, fileName2, gzipChoice, firstPosition, lastPosition])
 ```
 
-These reads are then trimmd and translated, based on the mutagenesis locations specified. The frequencies of each Amino Acid and Nucleic Acid, at each position, are computed and presented in the files AAFreq and NucFreq
+These reads are then trimmd and translated, based on the mutagenesis locations specified. The frequencies of each Amino Acid and Nucleic Acid, at each position, are computed and presented in the files AAFreq and NucFreq. The observed vs expected Amino Acid Frequencies are presented in the files ObsExp. These frequencies are then merged across n-plicates for each experiment/control. Further analysis can be conducted on the frequencies to generate graphs/plots.
 
 ```
 call(["python3", "getPeptides.py", name, firstPosition, lastPosition])
@@ -88,9 +84,39 @@ call(["python3", "getNucleicAcidCount.py", name, firstPosition, lastPosition])
 call(["python3", "ObservedExpectedPlot.py", name, n_mer])
 ```
 
+### DESEQ2 Analysis for Significantly Enriched Peptides using R
 
+R conducts differential expression analysis using DESEQ2 to identify significantly enriched peptides. This program uses the Bonferroni Correction and defines enriched peptides as those with a p value less than 0.05 and a log fold change greater than 0. 
 
-(a subset of the complete FASTQ sequencing results), for Neutrophil Proteases Cathepsin G (C), Elastase (E), and Human Proteinase 3 (H) with an unselected control (N). The experiments were done in duplicates.
+The generated DESEQ results are then converted into FASTA files for PCA Analysis.
+
+```
+subprocess.call(["Rscript", os.getcwd() + "/DESEQprocessor.R", os.getcwd(), colData, replicates, experimentData, control[0], experimentName], shell=True)
+for i in range(len(experiments)):
+    fileName1 = find_files('enrich_'+experiments[i]+'_bonf_deseq2.txt')
+    call(["python3", "DESEQtoFASTA.py", experiments[i], fileName1])
+```
+
+### Principal Component Analysis to cluster Significatly Enriched Peptides
+Principal Component Analysis uses key properties of Amino Acids (Charge, Disorder, HPATH, RMW) and attaches a weight to each position's Amino Acid properties. This creates a principal component. PCA Analysis aims to create principal components in a way that generates the furthest separation between groups, forming clusters of peptides with similar properties. This is crucial towards deconvoluting the peptides and identifying peptide signatures that reveal information about enrichment.
+
+The default is 3 Principal Components and 10 Maximum Cluters. These can be adjusted through parameters.txt
+
+```
+subprocess.call(["Rscript", os.getcwd() + "/PCAprocessor.r", os.getcwd(), experimentData, PCAcomponents, PCAclusters], shell=True)
+```
+
+### Weblogo Analysis for clusters
+To visualize the peptide motifs of each cluster, sequence logos are created using Weblogo software. 
+  
+```
+call(["python3", "WeblogoProcessor.py", treatmentList])
+```
+
+### Test Files
+Within the repository (located in the Test Files folder) is a a subset of the FASTQ sequencing results for Neutrophil Proteases Cathepsin G (C), Elastase (E), and Human Proteinase 3 (H) with an unselected control (N). The experiments were done in duplicates. The default parameters in parameters.txt were based off this experiment.
+
+# References:
 
 The code adapts work from:
 - Dr. Kart Tomberg https://github.com/tombergk/NNK_VWF73/
