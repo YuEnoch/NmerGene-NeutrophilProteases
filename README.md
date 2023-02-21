@@ -23,6 +23,7 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 1. Change Parameters in [parameters.txt](/parameters.txt) (# of treatments, # of n_plicates, experiment/treatment names, gzip, etc.)
    - Ensure that the formatting is the same
 2. Change Seeds (Conserved Sequences) in clean_fastq.py, based on your sequencing
+3. Each n-mer requires a list of all possible n-mer sequences (e.g. NNK5_combinations.txt). If your n-mer is 6 or above, please generate your own combinations file using a nested for loop and move it into the folder. The combinations for 5 and below are included in the repository (filesize too large for >5 n-mers).
 
 ## Contents
 
