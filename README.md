@@ -84,6 +84,7 @@ call(["python3", "getNucleicAcidCount.py", name, firstPosition, lastPosition])
 call(["python3", "ObservedExpectedPlot.py", name, n_mer])
 ```
 
+
 ### DESEQ2 Analysis for Significantly Enriched Peptides using R
 
 R conducts differential expression analysis using DESEQ2 to identify significantly enriched peptides. This program uses the Bonferroni Correction and defines enriched peptides as those with a p value less than 0.05 and a log fold change greater than 0. 
@@ -103,6 +104,7 @@ for i in range(len(experiments)):
 
 **DESEQ2 Results for Cathepsin G on the Test Files Subset**
 
+
 ### Principal Component Analysis to cluster Significatly Enriched Peptides
 Principal Component Analysis uses key properties of Amino Acids (Charge, Disorder, HPATH, RMW) and attaches a weight to each position's Amino Acid properties. This creates a principal component. PCA Analysis aims to create principal components in a way that generates the furthest separation between groups, forming clusters of peptides with similar properties. This is crucial towards deconvoluting the peptides and identifying peptide signatures that reveal information about enrichment.
 
@@ -119,6 +121,7 @@ subprocess.call(["Rscript", os.getcwd() + "/PCAprocessor.r", os.getcwd(), experi
 
 **PCA Results for Cathepsin G on the Test Files Subset**
 
+
 ### Weblogo Analysis for clusters
 To visualize the peptide motifs of each cluster, sequence logos are created using Weblogo software. 
   
@@ -132,8 +135,10 @@ call(["python3", "WeblogoProcessor.py", treatmentList])
 
 **Weblogos for Cathepsin G on the Test Files Subset**
 
+
 ### Test Files
 Within the repository (located in the Test Files folder) is a a subset of the FASTQ sequencing results for Neutrophil Proteases Cathepsin G (C), Elastase (E), and Human Proteinase 3 (H) with an unselected control (N). The experiments were done in duplicates. The default parameters in parameters.txt were based off this experiment.
+
 
 # References:
 
