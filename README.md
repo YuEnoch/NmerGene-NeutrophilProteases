@@ -96,10 +96,10 @@ for i in range(len(experiments)):
     fileName1 = find_files('enrich_'+experiments[i]+'_bonf_deseq2.txt')
     call(["python3", "DESEQtoFASTA.py", experiments[i], fileName1])
 ```
-
-<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_FDRvsBonferroni.png" width="400" />
-<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_DEseq_plotMA.png" width="400" />
-                                                                                                                                        
+<p float="middle">
+   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_FDRvsBonferroni.png" width="400" />
+   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_DEseq_plotMA.png" width="400" />
+</p>                                                                                                                                        
 **DESEQ2 Results for Cathepsin G on the Test Subset**
 
 ### Principal Component Analysis to cluster Significatly Enriched Peptides
@@ -110,11 +110,11 @@ The default is 3 Principal Components and 10 Maximum Cluters. These can be adjus
 ```
 subprocess.call(["Rscript", os.getcwd() + "/PCAprocessor.r", os.getcwd(), experimentData, PCAcomponents, PCAclusters], shell=True)
 ```
-                                                           
-<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_3DPlot_1.png" width="400" />
-<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_GoodnessOfFit.png" width="400" />
-<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Loadings.png" width="400" />
-                                                                                                                                       
+<p float="middle">
+   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_3DPlot_1.png" width="400" />
+   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_GoodnessOfFit.png" width="400" />
+   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Loadings.png" width="400" />
+</p>                                                                                                                                       
 **PCA Results for Cathepsin G on the Test Subset**
 
 ### Weblogo Analysis for clusters
@@ -123,9 +123,10 @@ To visualize the peptide motifs of each cluster, sequence logos are created usin
 ```
 call(["python3", "WeblogoProcessor.py", treatmentList])
 ```
-<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_1_logo.png" width="100" />
-<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_2_logo.png" width="100" />
-                                                                                                                                       
+<p float="middle">
+   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_1_logo.png" width="100" />
+   <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_2_logo.png" width="100" />
+</p>                                                                                                                                       
 **Weblogo for Cathepsin G on the Test Subset**
 
 ### Test Files
