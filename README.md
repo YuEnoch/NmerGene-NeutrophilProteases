@@ -98,6 +98,8 @@ for i in range(len(experiments)):
 ```
 
 ![DESEQ2Result](/ReferenceImages/cathepsinG_FDRvsBonferroni.png "FDR vs Bonferroni Image")
+![DESEQ2Result](/ReferenceImages/cathepsinG_DEseq_plotMA.pdf "FDR vs Bonferroni Image")
+
 
 ### Principal Component Analysis to cluster Significatly Enriched Peptides
 Principal Component Analysis uses key properties of Amino Acids (Charge, Disorder, HPATH, RMW) and attaches a weight to each position's Amino Acid properties. This creates a principal component. PCA Analysis aims to create principal components in a way that generates the furthest separation between groups, forming clusters of peptides with similar properties. This is crucial towards deconvoluting the peptides and identifying peptide signatures that reveal information about enrichment.
