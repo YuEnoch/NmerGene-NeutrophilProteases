@@ -99,7 +99,8 @@ for i in range(len(experiments)):
 <p align="middle">
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_FDRvsBonferroni.png" width="400" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_DEseq_plotMA.png" width="400" />
-</p>                                                                                                                                        
+</p>    
+
 **DESEQ2 Results for Cathepsin G on the Test Subset**
 
 ### Principal Component Analysis to cluster Significatly Enriched Peptides
@@ -114,7 +115,8 @@ subprocess.call(["Rscript", os.getcwd() + "/PCAprocessor.r", os.getcwd(), experi
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_3DPlot_1.png" width="300" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_GoodnessOfFit.png" width="300" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Loadings.png" width="300" />
-</p>                                                                                                                                       
+</p>          
+
 **PCA Results for Cathepsin G on the Test Subset**
 
 ### Weblogo Analysis for clusters
@@ -126,7 +128,8 @@ call(["python3", "WeblogoProcessor.py", treatmentList])
 <p align="middle">
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_1_logo.png" width="100" />
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_2_logo.png" width="100" />
-</p>                                                                                                                                       
+</p>   
+
 **Weblogo for Cathepsin G on the Test Subset**
 
 ### Test Files
