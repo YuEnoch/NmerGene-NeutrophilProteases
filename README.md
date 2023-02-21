@@ -97,11 +97,9 @@ for i in range(len(experiments)):
     call(["python3", "DESEQtoFASTA.py", experiments[i], fileName1])
 ```
 
-![DESEQ2Result](/ReferenceImages/cathepsinG_FDRvsBonferroni.png "FDR vs Bonferroni Image")
-![DESEQ2Result](/ReferenceImages/cathepsinG_DEseq_plotMA.png "Enrichment Volcano Plot")
-<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_FDRvsBonferroni.png" width="200" />
-
-
+<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_FDRvsBonferroni.png" width="600" />
+<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_DEseq_plotMA.png" width="600" />
+                                                                                                                                        
 DESEQ2 Results for Cathepsin G on the Test Subset
 
 ### Principal Component Analysis to cluster Significatly Enriched Peptides
@@ -112,6 +110,12 @@ The default is 3 Principal Components and 10 Maximum Cluters. These can be adjus
 ```
 subprocess.call(["Rscript", os.getcwd() + "/PCAprocessor.r", os.getcwd(), experimentData, PCAcomponents, PCAclusters], shell=True)
 ```
+                                                           
+<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_3DPlot_1.png" width="600" />
+<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_GoodnessOfFit.png" width="600" />
+<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Loadings.png" width="600" />
+                                                                                                                                       
+PCA Results for Cathepsin G on the Test Subset
 
 ### Weblogo Analysis for clusters
 To visualize the peptide motifs of each cluster, sequence logos are created using Weblogo software. 
@@ -119,6 +123,10 @@ To visualize the peptide motifs of each cluster, sequence logos are created usin
 ```
 call(["python3", "WeblogoProcessor.py", treatmentList])
 ```
+<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_1_logo.png" width="600" />
+<img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_2_logo.png" width="600" />
+                                                                                                                                       
+Weblogo for Cathepsin G on the Test Subset
 
 ### Test Files
 Within the repository (located in the Test Files folder) is a a subset of the FASTQ sequencing results for Neutrophil Proteases Cathepsin G (C), Elastase (E), and Human Proteinase 3 (H) with an unselected control (N). The experiments were done in duplicates. The default parameters in parameters.txt were based off this experiment.
