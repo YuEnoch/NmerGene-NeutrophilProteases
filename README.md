@@ -130,7 +130,7 @@ call(["python3", "WeblogoProcessor.py", treatmentList])
    <img src="https://raw.githubusercontent.com/YuEnoch/NNK-NeutrophilProteases/main/ReferenceImages/cathepsinG_Cluster_2_logo.png" width="100" />
 </p>   
 
-**Weblogo for Cathepsin G on the Test Files Subset**
+**Weblogos for Cathepsin G on the Test Files Subset**
 
 ### Test Files
 Within the repository (located in the Test Files folder) is a a subset of the FASTQ sequencing results for Neutrophil Proteases Cathepsin G (C), Elastase (E), and Human Proteinase 3 (H) with an unselected control (N). The experiments were done in duplicates. The default parameters in parameters.txt were based off this experiment.
@@ -145,6 +145,6 @@ The code adapts work from:
 
 **PCA Analysis Files**: from Dr. Matt Holding
 
-**DESEQ2**: Love MI, Huber W, Anders S (2014). “Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2.” Genome Biology, 15, 550. doi: 10.1186/s13059-014-0550-8.
+**DESEQ2**: Love MI, Huber W, Anders S (2014). “Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2.” Genome Biology, 15, 550. https://doi.org/10.1186/s13059-014-0550-8.
 
 **MClust**: Scrucca L, Fop M, Murphy TB, Raftery AE (2016). “mclust 5: clustering, classification and density estimation using Gaussian finite mixture models.” The R Journal, 8(1), 289–317. https://doi.org/10.32614/RJ-2016-021.
