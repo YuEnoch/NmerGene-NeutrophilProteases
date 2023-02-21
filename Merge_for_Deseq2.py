@@ -26,9 +26,10 @@ num = int(numberOfTreatments)
 treatments = sys.argv[3] #Example: C1,C2,E1,E2,H1,H2,N1,N2
 treatments = treatments.split(',')
 minCount = int(sys.argv[4]) #Minimum Count for Each Peptide (across the row)
+n_mer = int(sys.argv[5])
 
 
-combinations=open('NNK5_combinations.txt','r')	#All Possible Combinations for 5 amino acids
+combinations=open('NNK' + str(n_mer) + '_combinations.txt','r')	#All Possible Combinations for n-mer amino acids
 outfile=open(experimentName+"_merged.txt",'w')
 outfileCSV=open(experimentName+"_merged.csv",'w', newline='')
 writer = csv.writer(outfileCSV)
