@@ -131,8 +131,6 @@ for i in range(len(allTreatments)):
     call(["python3", "getNucleicAcidCount.py", name, firstPosition, lastPosition])
     call(["python3", "ObservedExpectedPlot.py", name, n_mer])
 
-call(["python3", "FrequencyAnalysis.py", ','.join(treatmentNames), ','.join(allTreatments)])
-
 #Generates Observed/Expected, Nucleotide, Amino Acid Frequencies for one treatment (combining its n-plicates)
 for i in range(int(len(allTreatments)/n_plicates)): 
     treatmentList = ""
@@ -145,6 +143,8 @@ for i in range(int(len(allTreatments)/n_plicates)):
     call(["python3", "MergeCounts.py", treatment, str(n_plicates), treatmentList, str(1), n_mer])
     call(["python3", "ObservedExpectedPlot.py", treatment, n_mer])
 
+#Generates a merged Obs/Exp Table for all treatments
+call(["python3", "FrequencyAnalysis.py", ','.join(treatmentNames), ','.join(allTreatments)])
 
 #Merge_for_Deseq2.py: merges Peptide Frequnecies across all treatments into one file, for subsequent Deseq2 analysis
 treatmentList = ','.join(allTreatments)
