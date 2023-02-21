@@ -127,7 +127,7 @@ for i in range(len(allTreatments)):
     call(["python3", "getPeptides.py", name, firstPosition, lastPosition])
     print(name, "getPeptides.py done")
 
-    call(["python3", "getAminoAcidCount.py", name, firstPosition, lastPosition])
+    call(["python3", "getAminoAcidCount.py", name, n_mer])
     call(["python3", "getNucleicAcidCount.py", name, firstPosition, lastPosition])
     call(["python3", "ObservedExpectedPlot.py", name, n_mer])
     
