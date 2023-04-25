@@ -19,7 +19,8 @@ folder = args[1]
 treatments = unlist(strsplit(args[2], split = ","))
 PCAcomponents = args[3]
 PCAclusters = args[4]
-
+ 
+setwd(folder)  
 source(paste0(folder, '/PCA Analysis/SeqSpace main function.R'))
 source(paste0(folder, '/PCA Analysis/Plots.R'))
 res.prop1 <- readRDS(paste0(folder,'/PCA Analysis/config.rds')) #contains the properties of each Amino Acid
