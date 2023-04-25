@@ -33,7 +33,6 @@ library("mclust")
 #library("seqinr")
 
 # Main PCA -------
-setwd('C:/Users/enoch/Downloads/SeqSpace-master/SeqSpace-master/')
 
 PCA_MSA <- function(MSA,
                     res.prop,
