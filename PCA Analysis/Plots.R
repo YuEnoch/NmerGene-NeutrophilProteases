@@ -1,7 +1,6 @@
 #########.
 # PLOTS #
 #########.
-setwd('C:/Users/enoch/Downloads/SeqSpace-master/SeqSpace-master/')
 
 # Basic plots ---------
 
