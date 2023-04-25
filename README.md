@@ -11,11 +11,11 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 4. The Plots and Reults would all appear within the file and its folders
 
 **Prerequisites:**
-* Python 3
+* Python 3 (with Python3 Path setup)
 * R (with R Script Path setup) 
 * [DESeq2](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
 * [MClust](https://cran.r-project.org/web/packages/mclust/vignettes/mclust.html)
-* [Weblogo](https://github.com/WebLogo/weblogo)
+* [Weblogo](https://github.com/WebLogo/weblogo) (with Ghostscript installed)
 * Installation of Other R Packages for Visualization (specified in the R Scripts)
 
 
