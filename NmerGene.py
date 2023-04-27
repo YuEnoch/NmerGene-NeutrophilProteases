@@ -103,8 +103,12 @@ PCAcomponents = str(getDetails(input.readline(), 'i'))
 PCAclusters = str(getDetails(input.readline(), 'i'))
 
 
-def fileNameFormat(num, parallel):     #FastQ File Name Format
-    return allTreatments[num] + "_S" + str(num+1) + "_L00"+str(parallel)+"_R1_001.fastq"
+def fileNameFormat(num, parallel, gzipChoice):     #FastQ File Name Format
+    if gzipChoice == 0:
+        return allTreatments[num] + "_S" + str(num+1) + "_L00"+str(parallel)+"_R1_001.fastq"
+    else:
+        return allTreatments[num] + "_S" + str(num+1) + "_L00"+str(parallel)+"_R1_001.fastq.gz"    
+    #NOTE: Adjust this depending on your File Name Numbers
 
 def find_files(fileName):              #Find File Location (if FastQ not in same folder), goes outside 2 Folders to look for file
     dir_path = os.path.normpath(os.path.normpath(os.getcwd() + os.sep + os.pardir) + os.sep + os.pardir)   #goes outside two folders
@@ -118,11 +122,11 @@ def find_files(fileName):              #Find File Location (if FastQ not in same
 for i in range(len(allTreatments)):
     name = allTreatments[i]
 
-    fileName1 = find_files(fileNameFormat(i, 1))
+    fileName1 = find_files(fileNameFormat(i, 1, gzipChoice))
     if singleParallel == 'single':
         fileName2 = 'SingleReadOnly'
     else:
-        fileName2 = find_files(fileNameFormat(i, 2))
+        fileName2 = find_files(fileNameFormat(i, 2, gzipChoice))
     print(name, fileName1, fileName2)
     
     call(["python3", "clean_fastq.py", name, fileName1, fileName2, gzipChoice, firstPosition, lastPosition])
