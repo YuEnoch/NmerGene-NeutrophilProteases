@@ -33,6 +33,8 @@ for line in input:
     line=line.strip()    
     sense=line[firstPosition:lastPosition]
     peptide=mod575.translate_dna(sense)
+    if (lastPosition - firstPosition)/3 > len(peptide):
+        continue
     if peptide in peptides:
         peptides[peptide]+=1
     else:
