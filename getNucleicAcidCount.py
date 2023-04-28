@@ -31,6 +31,8 @@ print('done')
 for line in input:
     line = line.strip()
     sense=line[firstPosition:lastPosition]
+    if nucleotides > len(sense):
+        continue
     for i in range(nucleotides):
         base = sense[i]
         ind = nuc_list.index(base)
