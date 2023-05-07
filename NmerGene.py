@@ -177,7 +177,9 @@ subprocess.call(["Rscript", os.getcwd() + "/DESEQprocessor.R", os.getcwd(), colD
 #DESEQtoFASTA.py: converts the DESEQ results into a Fasta File (sequences alone) for PCA Analysis
 for i in range(len(experiments)):
     fileName1 = find_files('enrich_'+experiments[i]+'_bonf_deseq2.txt')
-    call(["python3", "DESEQtoFASTA.py", experiments[i], fileName1])
+    call(["python3", "DESEQtoFASTA.py", experiments[i], fileName1], 'bonf')
+    fileName2 = find_files('enrich_'+experiments[i]+'_fdr_deseq2.txt')    
+    call(["python3", "DESEQtoFASTA.py", experiments[i], fileName2], 'fdr')
 
 
 #PCAprocessor.r: Clusters significantly enriched peptides from Deseq using Principal Component Analysis based on Amino Acid Properties
