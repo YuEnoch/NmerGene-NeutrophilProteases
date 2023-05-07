@@ -7,8 +7,9 @@
 import sys
 number = sys.argv[1]
 fileName = sys.argv[2]
+types = sys.argv[3]
 input = open(fileName, 'r')
-output = open('enrich_'+number+'_bonf_deseq2.fasta', 'w')
+output = open('enrich_'+number+'_'+types+'_deseq2.fasta', 'w')
 input.readline()
 for line in input:
     line = line.strip().split()
@@ -16,3 +17,4 @@ for line in input:
     print(line[0], file = output)
 
 output.close()
+
