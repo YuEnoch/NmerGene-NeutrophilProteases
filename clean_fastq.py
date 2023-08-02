@@ -92,7 +92,14 @@ for pairedRead in get_read_set(file1):
     row4=pairedRead[3]
 
     #Checks the read for matching of at least one of three seeds of 8bp. If no match, goes to junk
-    if re.match(r'^CAGGAGGA[ATCGN]+',row2):
+    if len(row2[firstPosition:lastPosition]) < lastPosition - firstPosition:
+        seed_unmatched+=1
+        print(row1, file=junk1)
+        print(row2, file=junk1)
+        print(row3, file=junk1)
+        print(row4, file=junk1)
+        continue
+    elif re.match(r'^CAGGAGGA[ATCGN]+',row2):
         m=re.match(r'^[ATCGN]{50}([ATCGN]{15})[ATCGN]*',row2)
         sense=m.group(1)
         sense_quality=row4[firstPosition:lastPosition]
@@ -155,7 +162,14 @@ if not singleRead:
         row4 = pairedRead[3]
 
         # Checks the read for matching of at least one of three seeds of 8bp. If no match, goes to junk
-        if re.match(r'^CAGGAGGA[ATCGN]+', row2):
+        if len(row2[firstPosition:lastPosition]) < lastPosition - firstPosition:
+            seed_unmatched+=1
+            print(row1, file=junk1)
+            print(row2, file=junk1)
+            print(row3, file=junk1)
+            print(row4, file=junk1)
+            continue
+        elif re.match(r'^CAGGAGGA[ATCGN]+', row2):
             m = re.match(r'^[ATCGN]{50}([ATCGN]{15})[ATCGN]*', row2)
             sense = m.group(1)
             sense_quality = row4[firstPosition:lastPosition]
