@@ -54,16 +54,18 @@ gzipChoice = int(sys.argv[4])
 firstPosition = int(sys.argv[5])
 lastPosition = int(sys.argv[6])
 
-if gzipChoice == 0:
-    file1 = open(fileName1, 'r')
-    file2 = open(fileName2, 'r')
-elif gzipChoice == 1:
-    file1 = gzip.open(fileName1, 'r')
-    file2 = gzip.open(fileName2, 'r')
-
 singleRead = False
 if fileName2 == "SingleReadOnly":
     singleRead = True
+
+if gzipChoice == 0:
+    file1 = open(fileName1, 'r')
+    if not singleRead:
+        file2 = open(fileName2, 'r')
+elif gzipChoice == 1:
+    file1 = gzip.open(fileName1, 'r')
+    if not singleRead:
+        file2 = gzip.open(fileName2, 'r')
 
 good1=open(number+"_good_fastq",'w') 
 sense1=open(number+"_sense",'w')
