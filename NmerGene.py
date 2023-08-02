@@ -104,7 +104,7 @@ PCAclusters = str(getDetails(input.readline(), 'i'))
 
 
 def fileNameFormat(num, parallel, gzipChoice):     #FastQ File Name Format
-    if gzipChoice == 0:
+    if int(gzipChoice) == 0:
         return allTreatments[num] + "_S" + str(num+1) + "_L00"+str(parallel)+"_R1_001.fastq"
     else:
         return allTreatments[num] + "_S" + str(num+1) + "_L00"+str(parallel)+"_R1_001.fastq.gz"    
