@@ -6,7 +6,7 @@ This program can accommodate any n-mer mutagenesis library at any location, for 
 
 **To Start (based on default parameters, testing data):**
 1. Download this Repository and Extract the Folder
-2. Run [NmerGene.py](/NmerGene.py)
+2. Run [NmerGene.py](/NmerGene.py), either by clicking on the Python Script or running the command: python3 NmerGene.py
 3. A Python Popup should appear and the Pipeline would automatically run using the Test Files
 4. The Plots and Reults would all appear within the file and its folders
 
