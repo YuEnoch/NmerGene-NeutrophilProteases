@@ -26,7 +26,7 @@ filtered, and translated into a counts table of cleaved peptides.
 
 <div class="figure" style="text-align: center">
 
-<img src="phagelibraryprep.png" alt="Phage library generation and experimental design" width="40%" height="20%" />
+<img src="ReferenceImages/phagelibraryprep.png" alt="Phage library generation and experimental design" width="40%" height="20%" />
 <p class="caption">
 Phage library generation and experimental design
 </p>
